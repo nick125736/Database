@@ -1,0 +1,10 @@
+CREATE TABLE [Table] (
+    [Id]      INT           IDENTITY (1, 1) NOT NULL,
+    [Name]    NVARCHAR (20) NOT NULL,
+    [Sex]     CHAR (1)      NOT NULL,
+    [Birth]   DATE          NOT NULL,
+    [Address] VARCHAR (255) NULL,
+    PRIMARY KEY CLUSTERED ([Id] ASC)
+);
+
+https://cdn.discordapp.com/attachments/490090400476954624/1165733281929641995/image.png?ex=6547ecb8&is=653577b8&hm=eabb592c8c2e889eaf974c891ba9779e762133c8fddbef2df4d40f15afdf5d65&

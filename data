@@ -1,4 +1,4 @@
-CREATE MyCalendar [Table] (
+CREATE TABLE [dbo].[MyCalendar] (
     [Id]      INT           IDENTITY (1, 1) NOT NULL,
     [Name]    NVARCHAR (20) NOT NULL,
     [Sex]     CHAR (1)      NOT NULL,
@@ -7,15 +7,17 @@ CREATE MyCalendar [Table] (
     PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
+
+
 https://cdn.discordapp.com/attachments/490090400476954624/1165733281929641995/image.png?ex=6547ecb8&is=653577b8&hm=eabb592c8c2e889eaf974c891ba9779e762133c8fddbef2df4d40f15afdf5d65&
 1	Andy	M	2001/5/14	United States
 2	Nina	F	2002/1/25	Taiwan
 3	Timmy	M	2000/12/15	China
 4	Amy	F	2003/11/25	Japan
 
-SET IDENTITY_INSERT [dbo].[Table] ON
-INSERT INTO [dbo].[Table] ([Id], [Name], [Sex], [Birth], [Address]) VALUES (1, N'Andy', N'M', N'2001-05-14', N'United States')
-INSERT INTO [dbo].[Table] ([Id], [Name], [Sex], [Birth], [Address]) VALUES (2, N'Nina', N'F', N'2002-01-25', N'Taiwan')
-INSERT INTO [dbo].[Table] ([Id], [Name], [Sex], [Birth], [Address]) VALUES (3, N'Timmy', N'M', N'2000-12-15', N'China')
-INSERT INTO [dbo].[Table] ([Id], [Name], [Sex], [Birth], [Address]) VALUES (4, N'Amy', N'F', N'2003-11-25', N'Japan')
-SET IDENTITY_INSERT [dbo].[Table] OFF
+SET IDENTITY_INSERT [dbo].[MyCalendar] ON
+INSERT INTO [dbo].[MyCalendar] ([Id], [Name], [Sex], [Birth], [Address]) VALUES (1, N'Andy', N'M', N'2001-05-14', N'United States')
+INSERT INTO [dbo].[MyCalendar] ([Id], [Name], [Sex], [Birth], [Address]) VALUES (2, N'Nina', N'F', N'2002-01-25', N'Taiwan')
+INSERT INTO [dbo].[MyCalendar] ([Id], [Name], [Sex], [Birth], [Address]) VALUES (3, N'Timmy', N'M', N'2000-12-15', N'China')
+INSERT INTO [dbo].[MyCalendar] ([Id], [Name], [Sex], [Birth], [Address]) VALUES (4, N'Amy', N'F', N'2003-11-25', N'Japan')
+SET IDENTITY_INSERT [dbo].[MyCalendar] OFF

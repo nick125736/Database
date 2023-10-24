@@ -9,14 +9,14 @@ namespace Database.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class Controller : ControllerBase
+    public class asdController : ControllerBase
     {
         private readonly String _connectString = DBUtil.ConnectionString();
 
         [HttpGet]
         public async Task<IEnumerable<Calendar>> GetCalendars()
         {
-            string sqlQuery = "SELECT * FROM Table";
+            string sqlQuery = "SELECT * FROM MyCalendar";
             using (var connection = new SqlConnection(_connectString))
             {
                 var Calendars = await connection.QueryAsync<Calendar>(sqlQuery);
@@ -26,7 +26,7 @@ namespace Database.Controllers
         [HttpGet("{id}")]
         public async Task<Calendar> GetCalendar(int id)
         {
-            string sqlQuery = "SELECT * FROM Table WHERE Id = @Id";
+            string sqlQuery = "SELECT * FROM MyCalendar WHERE Id = @Id";
             using (var connection = new SqlConnection(_connectString))
             {
                 var Calendar = await connection.QueryFirstOrDefaultAsync<Calendar>(sqlQuery,
@@ -41,7 +41,7 @@ namespace Database.Controllers
         [HttpPost]
         public async Task<IActionResult> AddCalendar(Calendar Calendar)
         {
-            string sqlQuery = "INSERT INTO Table  (Name, Sex, Address)  VALUES (@Name, @Sex, @Address)";
+            string sqlQuery = "INSERT INTO MyCalendar (Name, Sex, Address)  VALUES (@Name, @Sex, @Address)";
             using (var connection = new SqlConnection(_connectString))
             {
                 await connection.ExecuteAsync(sqlQuery, Calendar);
@@ -51,7 +51,7 @@ namespace Database.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateCalendar(Calendar Calendar)
         {
-            string sqlQuery = "UPDATE Table SET Name = @Name, Sex = @Sex, Birth = @Birth, Address=@Address WHERE Id = @Id";
+            string sqlQuery = "UPDATE MyCalendar SET Name = @Name, Sex = @Sex, Birth = @Birth, Address=@Address WHERE Id = @Id";
             using (var connection = new SqlConnection(_connectString))
             {
                 await connection.ExecuteAsync(sqlQuery, Calendar);
@@ -61,7 +61,7 @@ namespace Database.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCalendar(int id)
         {
-            string sqlQuery = "DELETE FROM Table WHERE Id = @Id";
+            string sqlQuery = "DELETE FROM MyCalendar WHERE Id = @Id";
             using (var connection = new SqlConnection(_connectString))
             {
                 await connection.ExecuteAsync(sqlQuery, new { Id = id });
@@ -72,4 +72,3 @@ namespace Database.Controllers
 
     }
 }
-

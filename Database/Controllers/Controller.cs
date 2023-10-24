@@ -41,7 +41,7 @@ namespace Database.Controllers
         [HttpPost]
         public async Task<IActionResult> AddCalendar(Calendar Calendar)
         {
-            string sqlQuery = "INSERT INTO MyCalendar (Name, Sex, Address)  VALUES (@Name, @Sex, @Address)";
+            string sqlQuery = "INSERT INTO MyCalendar (Name, Sex, Birth, Address)  VALUES (@Name, @Sex, @Birth, @Address)";
             using (var connection = new SqlConnection(_connectString))
             {
                 await connection.ExecuteAsync(sqlQuery, Calendar);
